@@ -1,8 +1,9 @@
 **Big Data Project with NoSQL DB**
+==================================
 
 Voir objectifs et instructions du TP dans le pdf joint.
 
-1/Data integration : explain how the data has been recovered from the EnerNOC website and how it has been integrated into MongoDB
+**1/Data integration : explain how the data has been recovered from the EnerNOC website and how it has been integrated into MongoDB**
 
 Les données ont été téléchargées manuellement à partir du site web «https://open-enernoc-data.s3.amazonaws.com/anon/all-data.tar.gz». Elles se composent de fichiers csv :
 - le fichier all_sites.csv qui contient les données de consommation d'énergie des 100 sites de la société ENERNOC
@@ -17,7 +18,8 @@ MongoDB est une base de données orientée documents c'est à dire que les donn�
 local       0.000GB
 test        0.000GB
 use test
-db.createCollection("ernoc") // la collection qui recevra tous les documents s’appelle ernoc
+db.createCollection("ernoc") 
+	la collection qui recevra tous les documents s’appelle ernoc
 show collections
 ernoc
 
@@ -42,7 +44,7 @@ En retournant dans la console on véfirie que l'import s'est bien déroulé
 }
 > db.ernoc.find().count()
 100
-Les 100 lignes du fichier csv all.sites.csv sont devenus 100 documents contenant les infos générales sur les sites où l'énergie est consommée, l’import s’est bien déroulé.
+    Les 100 lignes du fichier csv all.sites.csv sont devenus 100 documents contenant les infos générales sur les sites où l'énergie est consommée, l’import s’est bien déroulé.
 
 Il nous faut maintenant importer les valeurs de consommation électriques des différents sites. Il nous faut donc construire une boucle d’importation. Cette boucle peut être réalisée avec n'importe quel langage driver compatible avec MongoDB. Nous choisissons Python et les librairies :
 pymongo pour se connecter à la base de données MongoDB 
