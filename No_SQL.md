@@ -1,4 +1,4 @@
-Big Data Project with NoSQL DB
+**Big Data Project with NoSQL DB**
 
 Voir objectifs et instructions du TP dans le pdf joint.
 
