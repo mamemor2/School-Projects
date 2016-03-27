@@ -18,8 +18,8 @@ MongoDB est une base de données orientée documents c'est à dire que les donn�
 local       0.000GB
 test        0.000GB
 use test
-db.createCollection("ernoc") 
-	la collection qui recevra tous les documents s’appelle ernoc
+db.createCollection("ernoc")  
+la collection qui recevra tous les documents s’appelle ernoc
 show collections
 ernoc
 
