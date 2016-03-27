@@ -67,7 +67,7 @@ except OSError :
 
 Tous les documents ont été importés et nous sommes capables d'associer à chaque valeur de consommation électrique le site où elle a été relevée, son industrie et sous-industrie.
 
-2/Data modeling : What data model and representation model should you use in your NoSQL database ? Why ?
+**2/Data modeling : What data model and representation model should you use in your NoSQL database ? Why ?**
 
 Le modèle choisi est d'avoir une seule collection (« ernoc ») qui contient des millions de documents de deux types :
 - Les documents contenant les informations sur les sites de consommations d'énergie (site id, industry, sub-industry, surface, latitude, longitude, time zone et décalage horaire)
@@ -75,8 +75,8 @@ Le modèle choisi est d'avoir une seule collection (« ernoc ») qui contient 
 
 La force de MongoDB est de nous permettre de gérer ces documents qui obéissent à des schémas différents dans une même collection. MongoDB nous permet également de lancer des requêtes sur tous les éléments de ces document qui sont stockés sous la forme de dictionnaires « clé-valeur » pour obtenir l'information recherchée. Pour ceci il faut par contre que le maximum d’informations liées à un item soient disponibles dans un seul document pour ne pas avoir à effectuer de jointure. MongoDB propose peu d’outils pour les jointures ($lookup) et cela se fait au détriment de la vitesse d’exécution et capacité de passage à l’échelle. Nous allons voir comment utiliser des requêtes pour retrouver des valeurs au sein de documents dans les questions suivantes.
 
-3/Query : define and run the following queries with your chosen NoSQL DB
-Try some simple queries (5 simples queries) : SELECT queries to explore your data, ORDER BY to sort data, etc.
+**3/Query : define and run the following queries with your chosen NoSQL DB
+Try some simple queries (5 simples queries) : SELECT queries to explore your data, ORDER BY to sort data, etc.**
 
 Même avec un grand nombre de documents MongoDB est capable de retourner le nombre de documents dans la collection en un temps très court :
 
@@ -90,7 +90,7 @@ On peut ensuite ne vouloir que quelques types de clés pour cette recherche et p
 
 > db.ernoc.find({'SITE_ID':6,'INDUSTRY':”Light Industrial”},{ ‘ _id‘ :0,‘SUB_INDUSTRY’:1})
 
-Calculate the sum LD for the 100 sites (timestamp interval:5 minutes)
+**Calculate the sum LD for the 100 sites (timestamp interval:5 minutes)**
 
 Pour calculer la somme totale de consommation électrique sur tous les sites on utilise la commande $aggregate de MongoDB. Celle-ci nous permet de regrouper les données par différentes étapes de manipulation et obtenir une vue sur les données comme cela nous est demandé dans cette question. Ici, nous regroupons toutes les valeurs de consommation électrique par l’étape $group et nous les sommons les unes aux autres via $sum, enfin nous vérifions que toutes les données ont été prises en compte via ‘count’. 
 
@@ -99,7 +99,7 @@ Pour calculer la somme totale de consommation électrique sur tous les sites on 
 
 L’opération nous renvoi un _id, ici fixé à null car nous ne souhaitons qu’une valeur ( le _id permet de catégoriser les aggrégations selon un filtre défini). la somme totale des valeurs, et le compte total des valeurs sommées.
 
-Calculate the average LD by sector of activity (timestamp interval:5 minutes)
+**Calculate the average LD by sector of activity (timestamp interval:5 minutes)**
 
 Cette fois on nous demande de calculer une moyenne des consommations électriques et non plus une somme totale et de la calculer par type d’industrie. On utilise donc le filtre _id pour grouper les documents par industrie et on calcule la moyenne des consommations par la commande $avg sur les valeurs.
 
@@ -109,7 +109,7 @@ Cette fois on nous demande de calculer une moyenne des consommations électrique
 { "_id" : "Food Sales & Storage", "avgLD" : 18.18904625241797 }
 { "_id" : "Commercial Property", "avgLD" : 89.74327534139022 }
 
-Calculate the total LD for the 100 sites (timestamp interval : a week)
+**Calculate the total LD for the 100 sites (timestamp interval : a week)**
 
 Pour cette question nous devons être capables de calculer pour tous les sites la consommation électrique totale comme plus-haut mais de retourner un résultat par semaine, or nous n’avons pas d’indication de semaine dans nos documents mais nous avons une indication de « timestamp » qui correspond aux nombres de secondes écoulées depuis le 1er janvier 1970. J’ai donc choisi de convertir le « timestamp » en nombre de semaines écoulées depuis le 1er janvier 1970 et de regrouper tous les documents via ce numéro de semaine. Ensuite toutes les valeurs de consommation électriques dans une même semaine sont sommées.
 
@@ -177,7 +177,7 @@ Type "it" for more
 { "_id" : 2234, "weekLD" : 9639516.918500055 }
 >
 
-Calculate the average LD by sector of activity (timestamp interval : a week)
+**Calculate the average LD by sector of activity (timestamp interval : a week)**
 
 Idem que précédemment, sauf que l’on souhaite grouper les données par numéro de semaine et par secteur d’activité. On spécifie donc _id pour être composé de ces deux éléments.
 
@@ -228,7 +228,7 @@ Type "it" for more
 >
 
 
-4/Bonus (to go further : cross reference temperatures and energy consumption) : retrieve the weather data (temperatures in US in 2012) + explore the temperature dependence by sector of activity (correlation between electrical consumption and temperature).
+**4/Bonus (to go further : cross reference temperatures and energy consumption) : retrieve the weather data (temperatures in US in 2012) + explore the temperature dependence by sector of activity (correlation between electrical consumption and temperature).**
 
 Pour commencer nous téléchargeons les données de températures aux US en 2012 au lien suivant :
 http://cdo.ncdc.noaa.gov/qclcd_ascii/
@@ -325,9 +325,7 @@ plot.default(weatherss$X_id.LAT,weatherss$X_id.Tavg)
 
 //On réalise la même opération pour les consommations électriques, sélection des données au 1er janvier 2012 et on trace la courbe consommations électriques en fonction de la latitude.
 
-ernocss=subset(ernoc,ernoc$X_id.day=="2012-01-01")
-
-
+> ernocss=subset(ernoc,ernoc$X_id.day=="2012-01-01")
 plot.default(ernocss$X_id.LAT,ernocss$dayvalue)
 
 
