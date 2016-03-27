@@ -57,7 +57,7 @@ from pymongo import MongoClient
 client=MongoClient('localhost',27017)  
 db=client.test  
 sites=pd.read_csv("/home/reddowan/Documents/Telecom Paris/2-No SQL/all-data/meta/all_sites.csv",usecols=["SITE_ID","INDUSTRY","SUB_INDUSTRY"])  
-#on crée un dataframe qui ne contient que les colonnes qui nous intéressent. On itère ensuite sur les lignes pour mettre à jour les documents.  
+//on crée un dataframe qui ne contient que les colonnes qui nous intéressent. On itère ensuite sur les lignes pour mettre à jour les documents.  
 for index, row in sites.iterrows():  
 try :  
  db.ernoc.insert(json.loads(pd.read_csv("/home/reddowan/Documents/Telecom Paris/2-No SQL/all-data/csv/"+str(sites[‘SITE_ID’])+".csv").to_json(orient='records')) )  
@@ -116,7 +116,7 @@ Pour cette question nous devons être capables de calculer pour tous les sites l
 
 Consommation totale (tous sites compris) par semaine
 
-> #Numéro de la semaine (depuis le 1er janvier 1970, UTC référence), on divise les secondes par 60 pour les minutes, par 60 pour les heures, par 24 pour les jours et par 7 pour avoir des semaines. La commande $trunc nous permet de tronquer le résultat obtenu au numéro de la semaine en cours.  
+> //Numéro de la semaine (depuis le 1er janvier 1970, UTC référence), on divise les secondes par 60 pour les minutes, par 60 pour les heures, par 24 pour les jours et par 7 pour avoir des semaines. La commande $trunc nous permet de tronquer le résultat obtenu au numéro de la semaine en cours.  
 db.ernoc.aggregate( [  {   $group:    {_id:{$trunc:{$divide: ["$timestamp",60*60*24*7]}}, weekLD:{$sum:"$value"}}  } ] )  
 { "_id" : 2243, "weekLD" : 5976001.066800636 }
 { "_id" : 2242, "weekLD" : 7907839.671499391 }
