@@ -321,7 +321,7 @@ Pour représenter ces données en 2 dimensions on extrait du dataframe de temper
 > weatherss=subset(weather, weather$X_id.day=20120101)
 plot.default(weatherss$X_id.LAT,weatherss$X_id.Tavg)  
 
-
+![alt text](/weather.jpg "Temperature vs Latitude")
 
 
 On remarque visuellement que pour notre subset du 1er janvier 2012, la température diminue avec la latitude ce qui confirme notre intuition.
