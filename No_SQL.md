@@ -321,7 +321,7 @@ Pour représenter ces données en 2 dimensions on extrait du dataframe de temper
 > weatherss=subset(weather, weather$X_id.day=20120101)
 plot.default(weatherss$X_id.LAT,weatherss$X_id.Tavg)  
 
-![alt text](mamemor2/School-Projects/weather.jpg "Temperature vs Latitude")
+![alt text](/weather.jpg "Temperature vs Latitude")
 
 
 On remarque visuellement que pour notre subset du 1er janvier 2012, la température diminue avec la latitude ce qui confirme notre intuition.
@@ -331,7 +331,7 @@ On réalise la même opération pour les consommations électriques, sélection 
 > ernocss=subset(ernoc,ernoc$X_id.day=="2012-01-01")  
 plot.default(ernocss$X_id.LAT,ernocss$dayvalue)
 
-
+![alt text](/conso.jpg "Electric consumption vs Latitude")
 
 Idem, on observe visuellement que la consommation électrique augmente avec la température. 
 
