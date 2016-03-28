@@ -3,7 +3,6 @@
 
 The aim of that little exercice on Python is to scan through wikipedia articles and retrieve a date for every article. For that we use the REGEX librairy on Python (re) and we wimply describe the most regular date expression structure in variables. Then we look for these structures in the articles under the assumption that the first date from top to bottom is the date of the article.
 
-<code>
 import re
 
 """months=("January","February","March","April","May","June","July","August","September","October","November","December")"""
@@ -48,14 +47,11 @@ with open("wikifirst.txt") as file:
             print pageTitle + "\thasDate\t" + match.group()
             result.write(pageTitle + "\thasDate\t" + match.group()+"\n")
             continue
-<code> 
-
 #Python Exercice using Regular Expression - category identification#
 ======================================================================
 
 This second excercice on Python is about finding the a category for each wikipedia articles using REGEX. For example Jeames Dean should be flagged as an "actor". For that we use the REGEX librairy on Python (re) and we look for structures like " Jeames Dean is a" which would typically be followed by the type of the article.
 
-<code>
 import re,string
 
 typePattern3 = re.compile("[A-z]*[a-z]* of ")
@@ -115,5 +111,3 @@ with open("wikifirst.txt") as file:
             print pageTitle + "\ttype\t" + category
             result.write(pageTitle + "\ttype\t" + category+"\n")
             continue
-
-<code>
