@@ -1,9 +1,9 @@
-**Retrouver Python**
+**Python Exercice using Regular Expression**
 ====================
 
-Test d'écriture
+The aim of that little exercice on Python is to scan through wikipedia articles and retrieve a date for every article. For that we use the REGEX librairy on Python (re) and we wimply describe the most regular date expression structure in variables. Then we look for these structures in the articles under the assumption that the first date from top to bottom is the date of the article.
 
-<code>
+>>
 import re
 
 """months=("January","February","March","April","May","June","July","August","September","October","November","December")"""
@@ -48,4 +48,4 @@ with open("wikifirst.txt") as file:
             print pageTitle + "\thasDate\t" + match.group()
             result.write(pageTitle + "\thasDate\t" + match.group()+"\n")
             continue
-<code>  
+>> 
