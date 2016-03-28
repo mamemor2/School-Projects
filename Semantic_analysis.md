@@ -1,3 +1,6 @@
+**Retrouver Python**
+====================
+
 
 <code>
 import re
@@ -44,4 +47,4 @@ with open("wikifirst.txt") as file:
             print pageTitle + "\thasDate\t" + match.group()
             result.write(pageTitle + "\thasDate\t" + match.group()+"\n")
             continue
-            
+<code>  
