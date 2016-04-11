@@ -6,3 +6,5 @@ In this directory you'll find all my school projects on Data Science. This inclu
 - [No SQL DBMS - MongoDB and post analysis in R] (/No_SQL_MongoDB_R.md) 
 - [Semantic Web analysis - Wikipedia exercices] (/semantic_analysis.md) 
 - Multimedia data analysis
+- Supervised learning classifiers survey and comparison
+- Deep neural network construction with Lua and Torch
