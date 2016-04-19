@@ -75,9 +75,12 @@ trainConfusion = optim.ConfusionMatrix(classes)
 validConfusion = optim.ConfusionMatrix(classes)
 
 trainSet = torch.Tensor(nTrain,mnistDataset.data:size(2),mnistDataset.data:size(3))
+-- we store the trainSet in a Tensor of 50000 observation and a vector of 784 elements in a row for processing the NN
 trainSet:copy(mnistDataset.data:narrow(1,1,nTrain):float():div(255.))
+-- we divise the pixel value by 255 for normalization
 trainSetLabel = torch.Tensor(nTrain)
 trainSetLabel:copy(mnistDataset.label:narrow(1,1,nTrain))
+-- We store the class for supervised learning
 trainSetLabel:add(1)
 
 validSet = torch.Tensor(nValid,mnistDataset.data:size(2),mnistDataset.data:size(3))
