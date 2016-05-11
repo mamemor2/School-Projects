@@ -1,4 +1,5 @@
 # School-Projects
+-----------------
 Telecom Paris Data Science Master of Technology
 
 In this directory you'll find all my school projects on Data Science. This include :
