@@ -1,4 +1,4 @@
-# School-Projects
+# School projects involving data science
 -----------------
 Telecom Paris Data Science Master of Technology
 
