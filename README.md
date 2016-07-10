@@ -11,4 +11,6 @@ In this directory you'll find all my school projects on Data Science. This inclu
 - 6.[Deep neural network construction on hand-written digits recognition with Lua and Torch](/train_mnist.lua)
 - 7.[Support Vector Machine Classifier and Support Vector Regression with Python and Scikit Learn](/TP_SVM_MMF.ipynb)
 - 8.Topic Modelling with Latent Dirichlet Allocation on employees bottom-up suggestions within Air France (See Work_project repo)
-- 9.[Hidden Markov Model on Part Of Speech processing and Digits recognition](/TP_HMM.ipynb)
+- 9.[Hidden Markov Model on Part Of Speech processing and Digits recognition](/TP_HMM_MMF2.ipynb)
+- 10.Distributed computing on wikipedia articles using a virtual machine and Hbase
+- 11.[Dataviz on France Map and population by town using D3](/index.html)
