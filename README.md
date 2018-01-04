@@ -1,8 +1,8 @@
-# School projects involving data science
+# Data Science School projects
 -----------------
 Telecom Paris Data Science Master of Technology
 
-In this directory you'll find all my school projects on Data Science. This include :
+In this directory you'll find part of my school projects on Data Science. These include :
 - 1.Machine Learning algorithms with Python and R
 - 2.[No SQL DBMS, MongoDB, for electrical energy consumption in the US and post analysis in R with correlation between energy consumption and temperature measured](/No_SQL_MongoDB_R.md) 
 - 3.[Semantic Web analysis on Wikipedia articles, exercices using regular expressions](/Semantic_analysis.md) 
